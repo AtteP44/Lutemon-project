@@ -8,12 +8,70 @@
     tools:context=".MainActivity">
 
     <TextView
+        android:id="@+id/GameNameTxt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
+        android:fontFamily="@font/geostar_fill"
+        android:text="Lutemon project"
+        android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.075" />
+
+    <Button
+        android:id="@+id/LoadGameBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="52dp"
+        android:backgroundTint="#4CAF50"
+        android:fontFamily="@font/geostar_fill"
+        android:onClick="loadGame"
+        android:text="Load Game"
+        app:layout_constraintEnd_toEndOf="@+id/GameNameTxt"
+        app:layout_constraintStart_toStartOf="@+id/GameNameTxt"
+        app:layout_constraintTop_toBottomOf="@+id/GameNameTxt" />
+
+    <Button
+        android:id="@+id/SaveGameBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:backgroundTint="#4CAF50"
+        android:fontFamily="@font/geostar_fill"
+        android:onClick="saveGame"
+        android:text="Save Game"
+        app:layout_constraintEnd_toEndOf="@+id/LoadGameBtn"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/LoadGameBtn"
+        app:layout_constraintTop_toBottomOf="@+id/LoadGameBtn" />
+
+    <Button
+        android:id="@+id/MoveMonsterBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="84dp"
+        android:backgroundTint="#4CAF50"
+        android:fontFamily="@font/geostar_fill"
+        android:onClick="moveMonsters"
+        android:text="Move Monsters"
+        app:layout_constraintEnd_toEndOf="@+id/SaveGameBtn"
+        app:layout_constraintHorizontal_bias="0.523"
+        app:layout_constraintStart_toStartOf="@+id/SaveGameBtn"
+        app:layout_constraintTop_toBottomOf="@+id/StartGameActivityBtn" />
+
+    <Button
+        android:id="@+id/StartGameActivityBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="132dp"
+        android:backgroundTint="#4CAF50"
+        android:fontFamily="@font/geostar_fill"
+        android:onClick="startGameActivity"
+        android:text="Start Game"
+        app:layout_constraintEnd_toEndOf="@+id/SaveGameBtn"
+        app:layout_constraintStart_toStartOf="@+id/SaveGameBtn"
+        app:layout_constraintTop_toBottomOf="@+id/SaveGameBtn" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

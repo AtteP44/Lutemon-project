@@ -1,0 +1,71 @@
+package com.attep.lutemon_project.fragments;
+
+import android.content.Intent;
+import android.os.Bundle;
+
+import androidx.fragment.app.Fragment;
+
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
+
+import com.attep.lutemon_project.CreateLutemonActivity;
+import com.attep.lutemon_project.Lutemon;
+import com.attep.lutemon_project.R;
+import com.attep.lutemon_project.TrainingActivity;
+
+
+public class TrainingFragment extends Fragment {
+
+    private Button startTrainingBtn;
+    private RadioGroup trainingRg;
+
+
+
+    public TrainingFragment() {
+        // Required empty public constructor
+    }
+
+
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        if (getArguments() != null) {
+
+        }
+    }
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.fragment_training, container, false);
+        startTrainingBtn = view.findViewById(R.id.TrainLutemonBtn);
+
+
+        startTrainingBtn.setOnClickListener(v ->{
+            Intent intent = new Intent(getActivity(), TrainingActivity.class);
+            startActivity(intent);
+        });
+
+
+        return view;
+    }
+
+    public void makeRadiobuttons(){
+         trainingRg = getView().findViewById(R.id.TrainingLutemonRg);
+
+        /*Arraylist<Lutemon> lutemons = Storage.getTrainingarea;
+        int i = 0;
+        for (Lutemon l : lutemons){
+            RadioButton rb = new RadioButton(getContext());
+            rb.setText(l.getName());
+            rb.setId(i++);
+            trainingRg.addView(rb);
+
+        }*/
+    }
+}

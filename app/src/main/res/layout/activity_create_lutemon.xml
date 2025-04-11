@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".CreateLutemonActivity">
+
+    <ImageView
+        android:id="@+id/ReturnBtn"
+        android:layout_width="61dp"
+        android:layout_height="50dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@android:drawable/ic_menu_revert" />
+
+    <RadioGroup
+        android:id="@+id/LutemonTypeRg"
+        android:layout_width="263dp"
+        android:layout_height="241dp"
+        android:layout_marginTop="176dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.482"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <RadioButton
+            android:id="@+id/WhiteRb"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/geostar_fill"
+            android:text="White" />
+
+        <RadioButton
+            android:id="@+id/BlackRb"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/geostar_fill"
+            android:text="Black" />
+
+        <RadioButton
+            android:id="@+id/OrangeRb"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/geostar_fill"
+            android:text="Orange" />
+
+        <RadioButton
+            android:id="@+id/GreenRb"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/geostar_fill"
+            android:text="Green" />
+
+        <RadioButton
+            android:id="@+id/PinkRb"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/geostar_fill"
+            android:text="Pink" />
+    </RadioGroup>
+
+    <Button
+        android:id="@+id/CreateButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="84dp"
+        android:text="Create"
+        android:backgroundTint="#4CAF50"
+        android:fontFamily="@font/geostar_fill"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <EditText
+        android:id="@+id/ChooseNameTxt"
+        android:layout_width="242dp"
+        android:layout_height="72dp"
+        android:ems="10"
+        android:fontFamily="@font/geostar_fill"
+        android:hint="Choose a name"
+        android:inputType="text"
+        app:layout_constraintBottom_toTopOf="@+id/CreateButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/LutemonTypeRg"
+        app:layout_constraintVertical_bias="0.737" />
+
+    <ImageView
+        android:id="@+id/OrangeImage"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="80dp"
+        app:layout_constraintStart_toEndOf="@+id/BlackImage"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/an_orange_pixelated_monster_sprite_for_a_videogame_without_a_background" />
+
+    <ImageView
+        android:id="@+id/BlackImage"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="80dp"
+        android:layout_marginEnd="2dp"
+        app:layout_constraintEnd_toStartOf="@+id/OrangeImage"
+        app:layout_constraintStart_toEndOf="@+id/WhiteImage"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/a_black_pixelated_monster_sprite_for_a_videogame_without_a_background_1_" />
+
+    <ImageView
+        android:id="@+id/GreenImage"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="80dp"
+        app:layout_constraintStart_toEndOf="@+id/OrangeImage"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/a_green_pixelated_monster_sprite_for_a_videogame" />
+
+    <ImageView
+        android:id="@+id/PinkImage"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="80dp"
+        android:layout_marginEnd="1dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/GreenImage"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/a_pink_pixelated_monster_sprite_for_a_videogame" />
+
+    <ImageView
+        android:id="@+id/WhiteImage"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="80dp"
+        android:layout_marginEnd="4dp"
+        app:layout_constraintEnd_toStartOf="@+id/BlackImage"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/a_white_pixelated_monster_sprite_for_a_videogame" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
