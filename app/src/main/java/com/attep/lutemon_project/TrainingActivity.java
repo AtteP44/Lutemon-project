@@ -1,6 +1,8 @@
 package com.attep.lutemon_project;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.widget.ImageView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -22,5 +24,13 @@ public class TrainingActivity extends AppCompatActivity {
         });
 
         findViewById(R.id.TrainLutemonBtn);
+        ImageView returnBtn = findViewById(R.id.ReturnBtn);
+
+        returnBtn.setOnClickListener(v -> {
+            Intent intent = new Intent(this, GameActivity.class);
+            startActivity(intent);
+        });
     }
+
+
 }
