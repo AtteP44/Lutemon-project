@@ -15,7 +15,10 @@ import android.widget.RadioGroup;
 import com.attep.lutemon_project.CreateLutemonActivity;
 import com.attep.lutemon_project.Lutemon;
 import com.attep.lutemon_project.R;
+import com.attep.lutemon_project.Storage;
 import com.attep.lutemon_project.TrainingActivity;
+
+import java.util.ArrayList;
 
 
 public class TrainingFragment extends Fragment {
@@ -43,7 +46,11 @@ public class TrainingFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_training, container, false);
-        startTrainingBtn = view.findViewById(R.id.TrainLutemonBtn);
+        startTrainingBtn = view.findViewById(R.id.StartTrainingActivityBtn);
+        if(Storage.getInstance().getAll() != null){
+
+
+        }
 
 
         startTrainingBtn.setOnClickListener(v ->{
@@ -58,7 +65,7 @@ public class TrainingFragment extends Fragment {
     public void makeRadiobuttons(){
          trainingRg = getView().findViewById(R.id.TrainingLutemonRg);
 
-        /*Arraylist<Lutemon> lutemons = Storage.getTrainingarea;
+        ArrayList<Lutemon> lutemons = Storage.getInstance().getAll();
         int i = 0;
         for (Lutemon l : lutemons){
             RadioButton rb = new RadioButton(getContext());
@@ -66,6 +73,6 @@ public class TrainingFragment extends Fragment {
             rb.setId(i++);
             trainingRg.addView(rb);
 
-        }*/
+        }
     }
 }

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ArenaActivity">
+
+    <TextView
+        android:id="@+id/ownLutemonTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="TextView"
+        android:fontFamily="@font/geostar_fill"
+        app:layout_constraintEnd_toEndOf="@+id/ownLutemonImg"
+        app:layout_constraintHorizontal_bias="0.513"
+        app:layout_constraintStart_toStartOf="@+id/ownLutemonImg"
+        app:layout_constraintTop_toBottomOf="@+id/ownLutemonImg" />
+
+    <Button
+        android:id="@+id/arenaContinueBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="64dp"
+        android:layout_marginBottom="76dp"
+        android:text="Continue"
+        android:backgroundTint="#4CAF50"
+        android:fontFamily="@font/geostar_fill"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/arenaFleeBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="72dp"
+        android:layout_marginBottom="76dp"
+        android:text="Flee"
+        android:backgroundTint="#4CAF50"
+        android:fontFamily="@font/geostar_fill"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/arenaContinueBtn" />
+
+    <TextView
+        android:id="@+id/opponentInfoTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="TextView"
+        android:fontFamily="@font/geostar_fill"
+        app:layout_constraintEnd_toEndOf="@+id/opponentLutemonImg"
+        app:layout_constraintStart_toStartOf="@+id/opponentLutemonImg"
+        app:layout_constraintTop_toBottomOf="@+id/opponentLutemonImg" />
+
+    <ImageView
+        android:id="@+id/ownLutemonImg"
+        android:layout_width="134dp"
+        android:layout_height="133dp"
+        android:layout_marginTop="296dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.133"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/a_black_pixelated_monster_sprite_for_a_videogame_without_a_background_1_" />
+
+    <ImageView
+        android:id="@+id/opponentLutemonImg"
+        android:layout_width="116dp"
+        android:layout_height="111dp"
+        android:layout_marginTop="92dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.816"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/a_black_pixelated_monster_sprite_for_a_videogame_without_a_background_1_" />
+</androidx.constraintlayout.widget.ConstraintLayout>

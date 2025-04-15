@@ -2,6 +2,7 @@ package com.attep.lutemon_project.fragments;
 
 import android.content.Intent;
 import android.os.Bundle;
+import java.util.ArrayList;
 
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -17,6 +18,7 @@ import com.attep.lutemon_project.GameActivity;
 import com.attep.lutemon_project.LutemonListAdapter;
 import com.attep.lutemon_project.MainActivity;
 import com.attep.lutemon_project.R;
+import com.attep.lutemon_project.Storage;
 
 
 public class HomeFragment extends Fragment {
@@ -47,8 +49,11 @@ public class HomeFragment extends Fragment {
         createBtn = view.findViewById(R.id.AddLutemonButton);
 
         recyclerView = view.findViewById(R.id.HomeRv);
-        /*recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-        recyclerView.setAdapter(new LutemonListAdapter());*/
+
+            recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+            recyclerView.setAdapter(new LutemonListAdapter(Storage.getInstance().getAll(),getContext()));
+
+
 
         createBtn.setOnClickListener(v ->{
             Intent intent = new Intent(getActivity(), CreateLutemonActivity.class);
