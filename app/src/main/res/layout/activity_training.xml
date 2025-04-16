@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".TrainingActivity">
+    <ImageView
+        android:id="@+id/ReturnBtn"
+        android:layout_width="61dp"
+        android:layout_height="50dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@android:drawable/ic_menu_revert" />
+
+    <Button
+        android:id="@+id/TrainLutemonBtn"
+        android:layout_width="263dp"
+        android:layout_height="54dp"
+        android:layout_marginBottom="104dp"
+        android:backgroundTint="#4CAF50"
+        android:fontFamily="@font/geostar_fill"
+        android:text="Train"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/TrainableLutemonIv"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        android:layout_marginTop="116dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/a_black_pixelated_monster_sprite_for_a_videogame_without_a_background_1_" />
+
+    <TextView
+        android:id="@+id/TrainingLutemonName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="44dp"
+        android:fontFamily="@font/geostar_fill"
+        android:text="Name"
+        android:textSize="34sp"
+        app:layout_constraintEnd_toEndOf="@+id/TrainableLutemonIv"
+        app:layout_constraintStart_toStartOf="@+id/TrainableLutemonIv"
+        app:layout_constraintTop_toBottomOf="@+id/TrainableLutemonIv" />
+
+    <TextView
+        android:id="@+id/TrainingLutemonLvl"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Lvl: "
+        android:textSize="20sp"
+        android:fontFamily="@font/geostar_fill"
+        app:layout_constraintEnd_toEndOf="@+id/TrainingLutemonName"
+        app:layout_constraintStart_toStartOf="@+id/TrainingLutemonName"
+        app:layout_constraintTop_toBottomOf="@+id/TrainingLutemonName" />
+
+    <TextView
+        android:id="@+id/TrainingProgressTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="48dp"
+        android:fontFamily="@font/geostar_fill"
+        android:text="0/100"
+        app:layout_constraintEnd_toEndOf="@+id/TrainingLutemonLvl"
+        app:layout_constraintHorizontal_bias="0.485"
+        app:layout_constraintStart_toStartOf="@+id/TrainingLutemonLvl"
+        app:layout_constraintTop_toBottomOf="@+id/TrainingLutemonLvl" />
+</androidx.constraintlayout.widget.ConstraintLayout>
