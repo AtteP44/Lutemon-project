@@ -47,11 +47,7 @@ public class TrainingFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_training, container, false);
         startTrainingBtn = view.findViewById(R.id.StartTrainingActivityBtn);
-        if(Storage.getInstance().getAll() != null){
-
-
-        }
-
+        makeRadiobuttons(view);
 
         startTrainingBtn.setOnClickListener(v ->{
             Intent intent = new Intent(getActivity(), TrainingActivity.class);
@@ -62,14 +58,14 @@ public class TrainingFragment extends Fragment {
         return view;
     }
 
-    public void makeRadiobuttons(){
-         trainingRg = getView().findViewById(R.id.TrainingLutemonRg);
+    public void makeRadiobuttons(View view){
+         trainingRg = view.findViewById(R.id.TrainingLutemonRg);
 
         ArrayList<Lutemon> lutemons = Storage.getInstance().getAll();
         int i = 0;
         for (Lutemon l : lutemons){
             RadioButton rb = new RadioButton(getContext());
-            rb.setText(l.getName());
+            rb.setText(l.getName() + " Lvl:" +l.getLevel()+" ("+l.getType()+")");
             rb.setId(i++);
             trainingRg.addView(rb);
 

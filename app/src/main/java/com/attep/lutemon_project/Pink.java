@@ -1,8 +1,8 @@
 package com.attep.lutemon_project;
 
 public class Pink extends Lutemon{
-    public Pink(String name, String type , int id) {
-        super(name, type, id);
+    public Pink(String name, String type) {
+        super(name, type);
         image=R.drawable.a_pink_pixelated_monster_sprite_for_a_videogame;
         attack = 5;
         defence = 5;

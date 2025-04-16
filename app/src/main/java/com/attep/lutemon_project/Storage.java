@@ -4,6 +4,8 @@ import java.util.ArrayList;
 
 public class Storage {
 
+    private int createdLutemonsAmount;
+
     private ArrayList<Lutemon> lutemonList = new ArrayList<>();
     private static Storage storage = null;
 
@@ -15,6 +17,8 @@ public class Storage {
     }
 
     public void addLutemon(Lutemon lutemon){
+        lutemon.setId(createdLutemonsAmount);
+        createdLutemonsAmount++;
         lutemonList.add(lutemon);
 
     }
