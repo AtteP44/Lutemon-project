@@ -61,7 +61,7 @@ public class TrainingFragment extends Fragment {
     public void makeRadiobuttons(View view){
          trainingRg = view.findViewById(R.id.TrainingLutemonRg);
 
-        ArrayList<Lutemon> lutemons = Storage.getInstance().getAll();
+        ArrayList<Lutemon> lutemons = new ArrayList<>(Storage.getInstance().getLutemonsByLocation("Training").values());
         int i = 0;
         for (Lutemon l : lutemons){
             RadioButton rb = new RadioButton(getContext());

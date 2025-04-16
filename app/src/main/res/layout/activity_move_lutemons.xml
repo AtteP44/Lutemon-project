@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <!-- RecyclerView for listing all Lutemons -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/moveLutemonsRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
+
+    <!-- Spinner to select destination location -->
+    <Spinner
+        android:id="@+id/destinationSpinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"/>
+
+    <!-- Button to execute the move -->
+    <Button
+        android:id="@+id/moveButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Move Lutemon"
+        android:layout_marginTop="16dp"/>
+</LinearLayout>

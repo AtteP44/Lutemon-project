@@ -32,7 +32,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void moveMonsters(View view){
-        System.out.println("m");
+        Intent intent = new Intent(this, MoveLutemonsActivity.class);
+        startActivity(intent);
+
     }
 
     public void startGameActivity(View view){

@@ -51,8 +51,10 @@ public class HomeFragment extends Fragment {
         recyclerView = view.findViewById(R.id.HomeRv);
 
             recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-            recyclerView.setAdapter(new LutemonListAdapter(Storage.getInstance().getAll(),getContext()));
-
+            recyclerView.setAdapter(new LutemonListAdapter(
+                new ArrayList<>(Storage.getInstance().getLutemonsByLocation("Home").values()),
+                getContext()
+          ));
 
 
         createBtn.setOnClickListener(v ->{

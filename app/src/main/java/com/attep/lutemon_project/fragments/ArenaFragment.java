@@ -60,7 +60,7 @@ public class ArenaFragment extends Fragment {
     public void makeRadiobuttons(View view){
         arenaRg = view.findViewById(R.id.ArenaLutemonRg);
 
-        ArrayList<Lutemon> lutemons = Storage.getInstance().getAll();
+        ArrayList<Lutemon> lutemons = new ArrayList<>(Storage.getInstance().getLutemonsByLocation("Arena").values());
         int i = 0;
         for (Lutemon l : lutemons){
             RadioButton rb = new RadioButton(getContext());
