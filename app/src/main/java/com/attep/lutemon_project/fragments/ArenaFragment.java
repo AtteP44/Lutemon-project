@@ -46,6 +46,7 @@ public class ArenaFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_arena, container, false);
         startArenaBtn = view.findViewById(R.id.StartArenaActivityBtn);
+        makeRadiobuttons(view);
 
         startArenaBtn.setOnClickListener(v ->{
             Intent intent = new Intent(getActivity(), ArenaActivity.class);
@@ -56,14 +57,14 @@ public class ArenaFragment extends Fragment {
         return view;
     }
 
-    public void makeRadiobuttons(){
-        arenaRg = getView().findViewById(R.id.ArenaLutemonRg);
+    public void makeRadiobuttons(View view){
+        arenaRg = view.findViewById(R.id.ArenaLutemonRg);
 
         ArrayList<Lutemon> lutemons = Storage.getInstance().getAll();
         int i = 0;
         for (Lutemon l : lutemons){
             RadioButton rb = new RadioButton(getContext());
-            rb.setText(l.getName());
+            rb.setText(l.getName() + " Lvl:" +l.getLevel()+" ("+l.getType()+")");
             rb.setId(i++);
             arenaRg.addView(rb);
 

@@ -3,7 +3,9 @@ package com.attep.lutemon_project;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.RadioGroup;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -12,6 +14,8 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 public class CreateLutemonActivity extends AppCompatActivity {
+
+    private EditText lutemonName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +33,7 @@ public class CreateLutemonActivity extends AppCompatActivity {
 
 
 
+
         returnBtn.setOnClickListener(v -> {
             Intent intent = new Intent(this, GameActivity.class);
             startActivity(intent);
@@ -39,13 +44,38 @@ public class CreateLutemonActivity extends AppCompatActivity {
 
     public void createLutemon(View view){
 
-        int id = 1;
-        String name = new String("sees");
-        String type = new String("White");
 
-        Lutemon newLutemon = new White(name, type, id);
+        RadioGroup lutemonTypeRg = findViewById(R.id.LutemonTypeRg);
+        lutemonName = findViewById(R.id.ChooseNameTxt);
+        String name = String.valueOf(lutemonName.getText());
 
 
-        Storage.getInstance().addLutemon(newLutemon);
+
+
+
+        if(lutemonTypeRg.getCheckedRadioButtonId() == R.id.WhiteRb){
+            String type = "White";
+            Lutemon newLutemon = new White(name, type);
+            Storage.getInstance().addLutemon(newLutemon);
+        } else if (lutemonTypeRg.getCheckedRadioButtonId() == R.id.BlackRb) {
+            String type = "Black";
+            Lutemon newLutemon = new Black(name, type);
+            Storage.getInstance().addLutemon(newLutemon);
+        } else if (lutemonTypeRg.getCheckedRadioButtonId() == R.id.OrangeRb) {
+            String type = "Orange";
+
+            Lutemon newLutemon = new Orange(name, type);
+            Storage.getInstance().addLutemon(newLutemon);
+        } else if (lutemonTypeRg.getCheckedRadioButtonId() == R.id.GreenRb) {
+            String type = "Green";
+            Lutemon newLutemon = new Green(name, type);
+            Storage.getInstance().addLutemon(newLutemon);
+        } else if (lutemonTypeRg.getCheckedRadioButtonId() == R.id.PinkRb) {
+            String type = "Pink";
+            Lutemon newLutemon = new Pink(name, type);
+            Storage.getInstance().addLutemon(newLutemon);
+        }
+
+
     }
 }

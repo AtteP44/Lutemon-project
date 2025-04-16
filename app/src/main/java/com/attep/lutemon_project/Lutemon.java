@@ -48,14 +48,15 @@ public abstract class Lutemon {
         return image;
     }
 
+    public void setId(int id) {
+        this.id = id;
+    }
 
-
-
-    public Lutemon(String name, String type, int id){
+    public Lutemon(String name, String type){
         this.name = name;
 
         this.type = type;
-        this.id = id;
+
         level = 1;
     }
 
