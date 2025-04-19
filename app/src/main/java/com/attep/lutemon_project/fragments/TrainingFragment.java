@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.Toast;
 
 import com.attep.lutemon_project.CreateLutemonActivity;
 import com.attep.lutemon_project.Lutemon;
@@ -18,6 +19,7 @@ import com.attep.lutemon_project.R;
 import com.attep.lutemon_project.Storage;
 import com.attep.lutemon_project.TrainingActivity;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 
@@ -50,11 +52,12 @@ public class TrainingFragment extends Fragment {
         makeRadiobuttons(view);
 
         startTrainingBtn.setOnClickListener(v ->{
+            trainingRg = view.findViewById(R.id.TrainingLutemonRg);
+
             Intent intent = new Intent(getActivity(), TrainingActivity.class);
+            intent.putExtra("chosenOne", trainingRg.getCheckedRadioButtonId());
             startActivity(intent);
         });
-
-
         return view;
     }
 

@@ -1,6 +1,8 @@
 package com.attep.lutemon_project;
 
-public abstract class Lutemon {
+import java.io.Serializable;
+
+public abstract class Lutemon implements Serializable {
 
     protected String name;
     protected String type;
@@ -61,8 +63,8 @@ public abstract class Lutemon {
     }
 
     public void levelUp(){
-        level = +1;
-        attack =+1;
+        level ++;
+        attack ++;
         restoreHealth();
     }
 
