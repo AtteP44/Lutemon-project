@@ -6,12 +6,13 @@
     tools:context=".fragments.ArenaFragment">
 
     <TextView
+        android:id="@+id/emptyArenaTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/geostar_fill"
-        android:text="Choose lutemon for arena"
+        android:layout_gravity="center_horizontal"
         android:layout_marginTop="40dp"
-        android:layout_gravity="center_horizontal"/>
+        android:fontFamily="@font/geostar_fill"
+        android:text="Choose lutemon for arena" />
 
     <Button
         android:id="@+id/StartArenaActivityBtn"
@@ -23,11 +24,15 @@
         android:fontFamily="@font/geostar_fill"
         android:text="Start Arena Fight" />
 
-    <RadioGroup
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/ArenaLutemonRg"
-        android:layout_marginTop="60dp"
-        android:layout_gravity="center_horizontal"/>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:id="@+id/arenaLutemonContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="8dp"/>
+    </ScrollView>
 
 </FrameLayout>

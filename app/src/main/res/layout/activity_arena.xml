@@ -8,16 +8,16 @@
     tools:context=".ArenaActivity">
 
     <TextView
-        android:id="@+id/ownLutemonTxt"
+        android:id="@+id/lutemon1InfoTxt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
-        android:text="TextView"
         android:fontFamily="@font/geostar_fill"
-        app:layout_constraintEnd_toEndOf="@+id/ownLutemonImg"
+        android:text="TextView"
+        app:layout_constraintEnd_toEndOf="@+id/lutemon1Img"
         app:layout_constraintHorizontal_bias="0.513"
-        app:layout_constraintStart_toStartOf="@+id/ownLutemonImg"
-        app:layout_constraintTop_toBottomOf="@+id/ownLutemonImg" />
+        app:layout_constraintStart_toStartOf="@+id/lutemon1Img"
+        app:layout_constraintTop_toBottomOf="@+id/lutemon1Img" />
 
     <Button
         android:id="@+id/arenaContinueBtn"
@@ -46,18 +46,19 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
-        android:id="@+id/opponentInfoTxt"
+        android:id="@+id/lutemon2InfoTxt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="TextView"
+        android:layout_marginTop="36dp"
         android:fontFamily="@font/geostar_fill"
-        app:layout_constraintEnd_toEndOf="@+id/opponentLutemonImg"
-        app:layout_constraintStart_toStartOf="@+id/opponentLutemonImg"
-        app:layout_constraintTop_toBottomOf="@+id/opponentLutemonImg" />
+        android:text="TextView"
+        app:layout_constraintEnd_toEndOf="@+id/lutemon2Img"
+        app:layout_constraintHorizontal_bias="0.4"
+        app:layout_constraintStart_toStartOf="@+id/lutemon2Img"
+        app:layout_constraintTop_toBottomOf="@+id/lutemon2Img" />
 
     <ImageView
-        android:id="@+id/ownLutemonImg"
+        android:id="@+id/lutemon1Img"
         android:layout_width="134dp"
         android:layout_height="133dp"
         android:layout_marginTop="288dp"
@@ -68,7 +69,7 @@
         app:srcCompat="@drawable/a_black_pixelated_monster_sprite_for_a_videogame_without_a_background_1_" />
 
     <ImageView
-        android:id="@+id/opponentLutemonImg"
+        android:id="@+id/lutemon2Img"
         android:layout_width="116dp"
         android:layout_height="111dp"
         android:layout_marginTop="92dp"
@@ -78,4 +79,65 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/a_black_pixelated_monster_sprite_for_a_videogame_without_a_background_1_" />
+
+    <TextView
+        android:id="@+id/lutemon1HpTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:text="TextView"
+        app:layout_constraintBottom_toTopOf="@+id/lutemon1Img"
+        app:layout_constraintEnd_toEndOf="@+id/lutemon1Img"
+        app:layout_constraintHorizontal_bias="0.447"
+        app:layout_constraintStart_toStartOf="@+id/lutemon1Img" />
+
+    <TextView
+        android:id="@+id/lutemon2HpTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:text="TextView"
+        app:layout_constraintBottom_toTopOf="@+id/lutemon2Img"
+        app:layout_constraintEnd_toEndOf="@+id/lutemon2Img"
+        app:layout_constraintHorizontal_bias="0.431"
+        app:layout_constraintStart_toStartOf="@+id/lutemon2Img" />
+
+    <TextView
+        android:id="@+id/lutemon1Name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
+        android:layout_marginBottom="7dp"
+        android:text="TextView"
+        app:layout_constraintBottom_toTopOf="@+id/lutemon1InfoTxt"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.201"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lutemon1Img"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/lutemon2Name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="17dp"
+        android:text="TextView"
+        app:layout_constraintBottom_toTopOf="@+id/lutemon2InfoTxt"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.753"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lutemon2Img"
+        app:layout_constraintVertical_bias="0.375" />
+
+    <TextView
+        android:id="@+id/battleInfoTxt"
+        android:layout_width="218dp"
+        android:layout_height="33dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.76" />
 </androidx.constraintlayout.widget.ConstraintLayout>

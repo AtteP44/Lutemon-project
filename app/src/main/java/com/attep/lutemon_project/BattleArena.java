@@ -6,6 +6,9 @@ public class BattleArena extends LutemonLocation {
     public String getLocationName() {
         return "Battle Arena";
     }
+    public void fight(Lutemon l1, Lutemon l2){
+
+    }
 
 
 }

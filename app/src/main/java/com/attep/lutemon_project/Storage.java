@@ -61,6 +61,16 @@ public class Storage {
         return new HashMap<>();
     }
 
+    public Lutemon getLutemonById(int id) {
+        for (LutemonLocation loc : locations.values()) {
+            if (loc.getLutemons().containsKey(id)) {
+                return loc.getLutemons().get(id);
+            }
+        }
+        return null;
+    }
+
+
     // returns everything as arraylist, this should probably also be hashmap
     public ArrayList<Lutemon> getAll() {
         ArrayList<Lutemon> all = new ArrayList<>();
