@@ -12,6 +12,8 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import java.util.Random;
+
 public class ArenaActivity extends AppCompatActivity {
     private int lutemon1Id;
     private int lutemon2Id;
@@ -21,12 +23,12 @@ public class ArenaActivity extends AppCompatActivity {
     private ImageView lutemon2Img;
     private TextView lutemon1Hp;
     private TextView lutemon2Hp;
-    private TextView lutemon1Info;
-    private TextView lutemon2Info;
     private TextView lutemon1Name;
     private TextView lutemon2Name;
     private TextView battleInfoTxt;
-    private Button continueBtn;
+    private Button continueBtn, fleeBtn, exitBtn;
+
+    private  ImageView fightImg1, fightImg2;
     private boolean firstContinue = true;
 
 
@@ -44,15 +46,17 @@ public class ArenaActivity extends AppCompatActivity {
         });
         continueBtn = findViewById(R.id.arenaContinueBtn);
         continueBtn.setOnClickListener(v -> continueFight());
-        Button fleeBtn = findViewById(R.id.arenaFleeBtn);
+        fleeBtn = findViewById(R.id.arenaFleeBtn);
         fleeBtn.setOnClickListener(v -> fleeFight());
+        exitBtn = findViewById(R.id.exitBtn);
+        exitBtn.setOnClickListener(v -> exitFight());
 
         lutemon1Img = findViewById(R.id.lutemon1Img);
         lutemon2Img = findViewById(R.id.lutemon2Img);
+        fightImg1 = findViewById(R.id.arenaStatusImg1);
+        fightImg2 = findViewById(R.id.arenaStatusImg2);
         lutemon1Hp   = findViewById(R.id.lutemon1HpTxt);
         lutemon2Hp   = findViewById(R.id.lutemon2HpTxt);
-        lutemon1Info = findViewById(R.id.lutemon1InfoTxt);
-        lutemon2Info = findViewById(R.id.lutemon2InfoTxt);
         lutemon1Name = findViewById(R.id.lutemon1Name);
         lutemon2Name = findViewById(R.id.lutemon2Name);
         battleInfoTxt = findViewById(R.id.battleInfoTxt);
@@ -64,22 +68,18 @@ public class ArenaActivity extends AppCompatActivity {
         l2 = Storage.getInstance().getLutemonById(lutemon2Id);
         lutemon1Img.setImageResource(l1.getImage());
         lutemon2Img.setImageResource(l2.getImage());
-        lutemon1Hp.setText(String.valueOf(l1.getHealth()));
-        lutemon2Hp.setText(String.valueOf(l2.getHealth()));
-        lutemon1Info.setText(l1.getInfoString());
-        lutemon2Info.setText(l2.getInfoString());
-        lutemon1Name.setText(l1.getName());
-        lutemon2Name.setText(l2.getName());
+        lutemon1Hp.setText(l1.getHealthStatus());
+        lutemon2Hp.setText(l2.getHealthStatus());
+        lutemon1Name.setText(l1.getArenaString());
+        lutemon2Name.setText(l2.getArenaString());
     }
     public void updateLutemons(){
         lutemon1Img.setImageResource(l1.getImage());
         lutemon2Img.setImageResource(l2.getImage());
-        lutemon1Hp.setText(String.valueOf(l1.getHealth()));
-        lutemon2Hp.setText(String.valueOf(l2.getHealth()));
-        lutemon1Info.setText(l1.getInfoString());
-        lutemon2Info.setText(l2.getInfoString());
-        lutemon1Name.setText(l1.getName());
-        lutemon2Name.setText(l2.getName());
+        lutemon1Hp.setText(l1.getHealthStatus());
+        lutemon2Hp.setText(l2.getHealthStatus());
+        lutemon1Name.setText(l1.getArenaString());
+        lutemon2Name.setText(l2.getArenaString());
     }
     public void continueFight(){
         if(!firstContinue){
@@ -93,10 +93,21 @@ public class ArenaActivity extends AppCompatActivity {
         updateLutemons();
         if (l2.getHealth() == 0){
             continueBtn.setVisibility(View.GONE);
+            fleeBtn.setVisibility(View.GONE);
+            exitBtn.setVisibility(View.VISIBLE);
+
             l1.levelUp();
         }
     }
     public void fleeFight(){
+        Random random = new Random();
+        if(random.nextBoolean()){
+            finish();
+        } else{
+            continueFight();
+        }
+    }
+    public void exitFight(){
         finish();
     }
 }

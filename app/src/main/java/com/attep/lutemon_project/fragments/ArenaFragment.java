@@ -90,10 +90,10 @@ public class ArenaFragment extends Fragment {
                 new ArrayList<>(Storage.getInstance().getLutemonsByLocation("Arena").values());
         if (lutemons.isEmpty()) {
 
-            emptyText.setVisibility(View.VISIBLE);
+            emptyText.setText("The arena is empty");
         } else {
 
-            emptyText.setVisibility(View.GONE);
+            emptyText.setText("Chose 2 lutemons to fight");
         }
         for (Lutemon l : lutemons) {
             CheckBox cb = new CheckBox(getContext());
