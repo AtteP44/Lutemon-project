@@ -6,12 +6,18 @@ import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 import java.util.ArrayList;
+import java.util.List;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.attep.lutemon_project.ArenaActivity;
 import com.attep.lutemon_project.Lutemon;
@@ -23,7 +29,10 @@ import com.attep.lutemon_project.TrainingActivity;
 public class ArenaFragment extends Fragment {
 
     private Button startArenaBtn;
-    private RadioGroup arenaRg;
+    private LinearLayout arenaContainer;
+    private TextView emptyText;
+
+    private final List<CheckBox> checkBoxes = new ArrayList<>();
 
 
 
@@ -46,10 +55,25 @@ public class ArenaFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_arena, container, false);
         startArenaBtn = view.findViewById(R.id.StartArenaActivityBtn);
-        makeRadiobuttons(view);
+        arenaContainer = view.findViewById((R.id.arenaLutemonContainer));
+        emptyText = view.findViewById(R.id.emptyArenaTextView);
+        populateCheckBoxes();
 
-        startArenaBtn.setOnClickListener(v ->{
+        startArenaBtn.setOnClickListener(v -> {
+            List<Integer> selectedIds = new ArrayList<>();
+            for (CheckBox cb : checkBoxes) {
+                if (cb.isChecked()) {
+                    selectedIds.add((Integer) cb.getTag());
+                }
+            }
+            if (selectedIds.size() != 2) {
+                Toast.makeText(getContext(),
+                        "Please select exactly two Lutemons", Toast.LENGTH_SHORT).show();
+                return;
+            }
             Intent intent = new Intent(getActivity(), ArenaActivity.class);
+            intent.putExtra("lutemon1_id", selectedIds.get(0));
+            intent.putExtra("lutemon2_id", selectedIds.get(1));
             startActivity(intent);
         });
 
@@ -57,17 +81,27 @@ public class ArenaFragment extends Fragment {
         return view;
     }
 
-    public void makeRadiobuttons(View view){
-        arenaRg = view.findViewById(R.id.ArenaLutemonRg);
 
-        ArrayList<Lutemon> lutemons = new ArrayList<>(Storage.getInstance().getLutemonsByLocation("Arena").values());
-        int i = 0;
-        for (Lutemon l : lutemons){
-            RadioButton rb = new RadioButton(getContext());
-            rb.setText(l.getName() + " Lvl:" +l.getLevel()+" ("+l.getType()+")");
-            rb.setId(i++);
-            arenaRg.addView(rb);
+    private void populateCheckBoxes() {
+        arenaContainer.removeAllViews();
+        checkBoxes.clear();
 
+        ArrayList<Lutemon> lutemons =
+                new ArrayList<>(Storage.getInstance().getLutemonsByLocation("Arena").values());
+        if (lutemons.isEmpty()) {
+
+            emptyText.setVisibility(View.VISIBLE);
+        } else {
+
+            emptyText.setVisibility(View.GONE);
+        }
+        for (Lutemon l : lutemons) {
+            CheckBox cb = new CheckBox(getContext());
+            cb.setText(l.getName() + " Lvl:" + l.getLevel() + " (" + l.getType() + ")");
+
+            cb.setTag(l.getId());
+            arenaContainer.addView(cb);
+            checkBoxes.add(cb);
         }
     }
 }

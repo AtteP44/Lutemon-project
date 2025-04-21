@@ -48,6 +48,10 @@ public abstract class Lutemon {
         return image;
     }
 
+    public String getInfoString(){
+        return "att: " + String.valueOf(this.getAttack()) + "; def: " + String.valueOf(this.getDefence()+ "; exp: "+ String.valueOf(this.getLevel()));
+    }
+
     public void setId(int id) {
         this.id = id;
     }
@@ -64,6 +68,17 @@ public abstract class Lutemon {
         level = +1;
         attack =+1;
         restoreHealth();
+    }
+
+    public String defense(Lutemon attacker){
+        if(attacker.getAttack() >= health){
+            health = 0;
+            return name + " kuoli";
+        }
+        else {
+            health = health - attacker.getAttack();
+            return name + " onnistui välttämään kuoleman";
+        }
     }
 
     public void restoreHealth(){
