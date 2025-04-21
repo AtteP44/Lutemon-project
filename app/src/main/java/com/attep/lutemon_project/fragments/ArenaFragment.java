@@ -49,7 +49,10 @@ public class ArenaFragment extends Fragment {
         makeRadiobuttons(view);
 
         startArenaBtn.setOnClickListener(v ->{
+            arenaRg = view.findViewById(R.id.ArenaLutemonRg);
+
             Intent intent = new Intent(getActivity(), ArenaActivity.class);
+            intent.putExtra("chosenOne", arenaRg.getCheckedRadioButtonId());
             startActivity(intent);
         });
 
