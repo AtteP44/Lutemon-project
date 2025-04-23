@@ -79,12 +79,13 @@ public abstract class Lutemon implements Serializable {
     }
 
     public String defense(Lutemon attacker){
-        if(attacker.getAttack() >= health){
+        int damageTaken = attacker.getAttack()-defence;
+        if(damageTaken >= health){
             health = 0;
             return name + " kuoli";
         }
         else {
-            health = health - attacker.getAttack();
+            health = health - damageTaken;
             return name + " onnistui välttämään kuoleman";
         }
     }
