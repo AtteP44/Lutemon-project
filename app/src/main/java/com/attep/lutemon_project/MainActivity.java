@@ -1,6 +1,7 @@
 package com.attep.lutemon_project;
 
 import android.content.Intent;
+import androidx.appcompat.app.AppCompatDelegate;
 import android.os.Bundle;
 import android.view.View;
 
@@ -15,6 +16,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
@@ -31,11 +33,6 @@ public class MainActivity extends AppCompatActivity {
         System.out.println("l");
     }
 
-    public void moveMonsters(View view){
-        Intent intent = new Intent(this, MoveLutemonsActivity.class);
-        startActivity(intent);
-
-    }
 
     public void startGameActivity(View view){
         Intent intent = new Intent(this, GameActivity.class);

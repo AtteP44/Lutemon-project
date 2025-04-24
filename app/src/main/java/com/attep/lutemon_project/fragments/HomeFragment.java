@@ -17,6 +17,7 @@ import com.attep.lutemon_project.CreateLutemonActivity;
 import com.attep.lutemon_project.GameActivity;
 import com.attep.lutemon_project.LutemonListAdapter;
 import com.attep.lutemon_project.MainActivity;
+import com.attep.lutemon_project.MoveLutemonsActivity;
 import com.attep.lutemon_project.R;
 import com.attep.lutemon_project.Storage;
 
@@ -26,6 +27,8 @@ public class HomeFragment extends Fragment {
 
     private RecyclerView recyclerView;
     private Button createBtn;
+
+    private Button moveBtn;
 
 
 
@@ -47,6 +50,7 @@ public class HomeFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
         createBtn = view.findViewById(R.id.AddLutemonButton);
+        moveBtn = view.findViewById(R.id.MoveMonsterBtn);
 
         recyclerView = view.findViewById(R.id.HomeRv);
 
@@ -61,7 +65,10 @@ public class HomeFragment extends Fragment {
             Intent intent = new Intent(getActivity(), CreateLutemonActivity.class);
             startActivity(intent);
         });
-
+        moveBtn.setOnClickListener(v -> {
+            Intent intent = new Intent(getActivity(), MoveLutemonsActivity.class);
+            startActivity(intent);
+        });
 
         return view;
     }

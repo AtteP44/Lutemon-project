@@ -21,4 +21,14 @@
 
         android:text="Add Lutemon" />
 
+    <Button
+        android:id="@+id/MoveMonsterBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|center"
+        android:layout_marginBottom="100dp"
+        android:backgroundTint="#4CAF50"
+        android:fontFamily="@font/geostar_fill"
+        android:text="Move Monsters" />
+
 </FrameLayout>
