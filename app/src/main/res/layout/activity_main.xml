@@ -47,19 +47,6 @@
         app:layout_constraintStart_toStartOf="@+id/LoadGameBtn"
         app:layout_constraintTop_toBottomOf="@+id/LoadGameBtn" />
 
-    <Button
-        android:id="@+id/MoveMonsterBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="84dp"
-        android:backgroundTint="#4CAF50"
-        android:fontFamily="@font/geostar_fill"
-        android:onClick="moveMonsters"
-        android:text="Move Monsters"
-        app:layout_constraintEnd_toEndOf="@+id/SaveGameBtn"
-        app:layout_constraintHorizontal_bias="0.523"
-        app:layout_constraintStart_toStartOf="@+id/SaveGameBtn"
-        app:layout_constraintTop_toBottomOf="@+id/StartGameActivityBtn" />
 
     <Button
         android:id="@+id/StartGameActivityBtn"
