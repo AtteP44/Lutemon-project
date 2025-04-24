@@ -1,6 +1,7 @@
 package com.attep.lutemon_project;
 
 import java.io.Serializable;
+import java.util.Random;
 
 public abstract class Lutemon implements Serializable {
 
@@ -13,6 +14,10 @@ public abstract class Lutemon implements Serializable {
     protected int maxHealth;
     protected int image;
     protected int id;
+
+    protected int wins;
+    protected int losses;
+    protected int trainingSessions;
 
     public String getName() {
         return name;
@@ -49,6 +54,23 @@ public abstract class Lutemon implements Serializable {
     public int getImage() {
         return image;
     }
+    public int getTrainingSessions() {
+        return trainingSessions;
+    }
+
+    public int getLosses() {
+        return losses;
+    }
+
+    public int getWins() {
+        return wins;
+    }
+    public void addWin(){
+        wins++;
+    }
+    public void addTrainingSession(){
+        trainingSessions++;
+    }
 
     public String getInfoString(){
         return "att: " + String.valueOf(this.getAttack()) + "; def: " + String.valueOf(this.getDefence()+ "; exp: "+ String.valueOf(this.getLevel()));
@@ -79,14 +101,15 @@ public abstract class Lutemon implements Serializable {
     }
 
     public String defense(Lutemon attacker){
-        int damageTaken = attacker.getAttack()-defence;
+        int damageTaken = attacker.getAttack()- defence;
         if(damageTaken >= health){
             health = 0;
-            return name + " kuoli";
+            losses++;
+            return name + " Fainted";
         }
         else {
             health = health - damageTaken;
-            return name + " onnistui välttämään kuoleman";
+            return name + " took "+ damageTaken +" damage!";
         }
     }
 

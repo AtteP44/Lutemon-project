@@ -8,7 +8,7 @@ public class White extends Lutemon{
 
         image = R.drawable.a_white_pixelated_monster_sprite_for_a_videogame;
         attack = 5;
-        defence = 5;
+        defence = 4;
         health = 20;
         maxHealth = 20;
     }

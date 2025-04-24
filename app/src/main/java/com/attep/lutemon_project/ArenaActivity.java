@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -95,6 +96,16 @@ public class ArenaActivity extends AppCompatActivity {
         lutemon2Hp.setText(l2.getHealthStatus());
         lutemon1Name.setText(l1.getArenaString());
         lutemon2Name.setText(l2.getArenaString());
+
+        if (l2.getHealth() <= 0){
+            l1.addWin();
+            continueBtn.setVisibility(View.GONE);
+            fleeBtn.setVisibility(View.GONE);
+            exitBtn.setVisibility(View.VISIBLE);
+
+            l1.levelUp();
+            Toast.makeText(this, "Level up!", Toast.LENGTH_SHORT).show();
+        }
     }
     public void continueFight(){
         Lutemon attacker = l1AttacksNext ? l1 : l2;
@@ -158,18 +169,14 @@ public class ArenaActivity extends AppCompatActivity {
         }, 2000);
 
 
+
+
         l1AttacksNext = !l1AttacksNext;
         swordImg.setImageResource(R.drawable.lutemon_sword);
         shieldImg.setImageResource(R.drawable.lutemon_shield);
 
 
-        if (l2.getHealth() == 0){
-            continueBtn.setVisibility(View.GONE);
-            fleeBtn.setVisibility(View.GONE);
-            exitBtn.setVisibility(View.VISIBLE);
 
-            l1.levelUp();
-        }
     }
     public void fleeFight(){
         Random random = new Random();

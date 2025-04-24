@@ -1,8 +1,10 @@
 package com.attep.lutemon_project;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -56,6 +58,13 @@ public class MoveLutemonsActivity extends AppCompatActivity {
         });
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(adapter);
+
+        ImageView returnBtn = findViewById(R.id.ReturnBtn);
+
+        returnBtn.setOnClickListener(v -> {
+            Intent intent = new Intent(this, GameActivity.class);
+            startActivity(intent);
+        });
 
         // When user taps move button, perform the move using Storage.moveLutemon()
         moveButton.setOnClickListener(v -> {

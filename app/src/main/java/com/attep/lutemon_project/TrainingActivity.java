@@ -67,6 +67,7 @@ public class TrainingActivity extends AppCompatActivity {
         progressTxt.setText(progress+ "/" + complete);
         if(progress == complete){
             trainingOne.levelUp();
+            trainingOne.addTrainingSession();
             lutemonLvl.setText("Lvl: "+trainingOne.getLevel());
             Toast.makeText(this, "Level up!", Toast.LENGTH_SHORT).show();
 
