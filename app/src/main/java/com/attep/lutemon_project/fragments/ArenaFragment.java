@@ -91,9 +91,11 @@ public class ArenaFragment extends Fragment {
         if (lutemons.isEmpty()) {
 
             emptyText.setText("The arena is empty");
+            startArenaBtn.setEnabled(false);
         } else {
 
             emptyText.setText("Chose 2 lutemons to fight");
+            startArenaBtn.setEnabled(true);
         }
         for (Lutemon l : lutemons) {
             CheckBox cb = new CheckBox(getContext());

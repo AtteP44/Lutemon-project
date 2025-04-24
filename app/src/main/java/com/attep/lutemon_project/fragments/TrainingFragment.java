@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.attep.lutemon_project.CreateLutemonActivity;
@@ -27,6 +28,7 @@ public class TrainingFragment extends Fragment {
 
     private Button startTrainingBtn;
     private RadioGroup trainingRg;
+    private TextView statusText;
 
 
 
@@ -49,6 +51,7 @@ public class TrainingFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_training, container, false);
         startTrainingBtn = view.findViewById(R.id.StartTrainingActivityBtn);
+        statusText = view.findViewById(R.id.trainingFragmentTxt);
         makeRadiobuttons(view);
 
         startTrainingBtn.setOnClickListener(v ->{
@@ -65,6 +68,15 @@ public class TrainingFragment extends Fragment {
          trainingRg = view.findViewById(R.id.TrainingLutemonRg);
 
         ArrayList<Lutemon> lutemons = new ArrayList<>(Storage.getInstance().getLutemonsByLocation("Training").values());
+        if (lutemons.isEmpty()) {
+
+            startTrainingBtn.setEnabled(false);
+            statusText.setText("Training is empty");
+        } else {
+
+            startTrainingBtn.setEnabled(true);
+            statusText.setText("Choose lutemon to train");
+        }
         int i = 0;
         for (Lutemon l : lutemons){
             RadioButton rb = new RadioButton(getContext());
