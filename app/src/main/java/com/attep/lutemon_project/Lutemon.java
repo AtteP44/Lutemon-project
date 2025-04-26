@@ -1,5 +1,7 @@
 package com.attep.lutemon_project;
 
+import android.content.Intent;
+
 import java.io.Serializable;
 import java.util.Random;
 
@@ -116,5 +118,7 @@ public abstract class Lutemon implements Serializable {
     public void restoreHealth(){
         health = maxHealth;
     }
+
+
 
 }

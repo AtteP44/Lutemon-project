@@ -36,6 +36,7 @@ public class LutemonListAdapter extends RecyclerView.Adapter<LutemonViewHolder> 
         holder.lutemonInfoBtn.setOnClickListener(view ->{
 
 
+
         });
 
     }
