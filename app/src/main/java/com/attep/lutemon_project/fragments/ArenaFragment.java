@@ -49,6 +49,11 @@ public class ArenaFragment extends Fragment {
 
         }
     }
+    @Override
+    public void onResume() {
+        super.onResume();
+        populateCheckBoxes();
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

@@ -1,11 +1,10 @@
 package com.attep.lutemon_project;
 
-import android.content.Intent;
-
 import java.io.Serializable;
 import java.util.Random;
 
 public abstract class Lutemon implements Serializable {
+    private static final Random RNG = new Random();
 
     protected String name;
     protected String type;
@@ -32,7 +31,12 @@ public abstract class Lutemon implements Serializable {
     public int getAttack() {
         return attack;
     }
-
+    public int getAttackRandomized() {
+        return attack + RNG.nextInt(3);  // 0, 1, or 2
+    }
+    public int getDefenseRandomized() {
+        return defence + RNG.nextInt(3);  // 0, 1, or 2
+    }
     public int getDefence() {
         return defence;
     }
@@ -74,9 +78,6 @@ public abstract class Lutemon implements Serializable {
         trainingSessions++;
     }
 
-    public String getInfoString(){
-        return "att: " + String.valueOf(this.getAttack()) + "; def: " + String.valueOf(this.getDefence()+ "; exp: "+ String.valueOf(this.getLevel()));
-    }
     public String getArenaString(){
         return name +" Lvl:" + level;
     }
@@ -102,17 +103,17 @@ public abstract class Lutemon implements Serializable {
         restoreHealth();
     }
 
-    public String defense(Lutemon attacker){
-        int damageTaken = attacker.getAttack()- defence;
+    public int defense(int attackValue, int defence){
+        int damageTaken = attackValue - defence;
         if(damageTaken >= health){
+            damageTaken = health;
             health = 0;
             losses++;
-            return name + " Fainted";
         }
         else {
             health = health - damageTaken;
-            return name + " took "+ damageTaken +" damage!";
         }
+        return damageTaken;
     }
 
     public void restoreHealth(){

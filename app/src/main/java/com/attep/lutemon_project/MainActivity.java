@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
         context = MainActivity.this;
-        Toast.makeText(context, context.getFilesDir().toString(), Toast.LENGTH_LONG).show();
+
 
 
     }

@@ -14,6 +14,13 @@
         android:layout_height="115dp"
 
         app:srcCompat="@drawable/an_orange_pixelated_monster_sprite_for_a_videogame_without_a_background" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        >
+
     <TextView
         android:id="@+id/LutemonLvlTxt"
         android:layout_width="wrap_content"
@@ -22,9 +29,22 @@
         android:text="Level"
         android:layout_gravity="right"/>
 
+        <TextView
+            android:id="@+id/LutemonStatTxt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/geostar_fill"
+            android:layout_marginTop="50dp"
+            android:visibility="gone"
+            android:text="Stats" />
+
+    </LinearLayout>
+
+
+
     <LinearLayout
         android:layout_width="wrap_content"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
         >
 
@@ -32,7 +52,7 @@
             android:id="@+id/LutemonNameTxt"
             android:layout_width="180dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="20dp"
             android:fontFamily="@font/geostar_fill"
             android:text="Name" />
 
@@ -43,6 +63,50 @@
 
             android:layout_marginTop="10dp"
             android:text="HP: ??/??" />
+
+        <TextView
+            android:id="@+id/LutemonWinTxt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/geostar_fill"
+            android:layout_marginTop="10dp"
+            android:visibility="gone"
+            android:text="Wins:" />
+        <TextView
+            android:id="@+id/LutemonLossTxt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/geostar_fill"
+            android:layout_marginTop="10dp"
+            android:visibility="gone"
+            android:text="Losses:" />
+        <TextView
+            android:id="@+id/LutemonTrainTxt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/geostar_fill"
+            android:layout_marginTop="10dp"
+            android:visibility="gone"
+            android:text="Training:" />
+
+        <TextView
+            android:id="@+id/LutemonAttackTxt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/geostar_fill"
+            android:layout_marginTop="10dp"
+            android:visibility="gone"
+            android:text="atck:" />
+
+        <TextView
+            android:id="@+id/LutemonDefTxt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/geostar_fill"
+            android:layout_marginTop="10dp"
+            android:visibility="gone"
+            android:text="def:" />
+
     </LinearLayout>
 
 

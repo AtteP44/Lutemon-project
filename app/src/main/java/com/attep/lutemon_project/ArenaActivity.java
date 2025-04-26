@@ -43,6 +43,7 @@ public class ArenaActivity extends AppCompatActivity {
     private Button continueBtn, fleeBtn, exitBtn;
 
     private  ImageView fightImg1, fightImg2;
+    BattleArena arena = new BattleArena();
 
 
 
@@ -97,27 +98,20 @@ public class ArenaActivity extends AppCompatActivity {
         lutemon1Name.setText(l1.getArenaString());
         lutemon2Name.setText(l2.getArenaString());
 
-        if (l2.getHealth() <= 0){
-            l1.addWin();
-            continueBtn.setVisibility(View.GONE);
-            fleeBtn.setVisibility(View.GONE);
-            exitBtn.setVisibility(View.VISIBLE);
-
-            l1.levelUp();
-            Toast.makeText(this, "Level up!", Toast.LENGTH_SHORT).show();
-        }
     }
     public void continueFight(){
+        if (l1.getHealth() <= 0 || l2.getHealth() <= 0) {
+            continueBtn.setEnabled(false);
+            return;
+        }
         Lutemon attacker = l1AttacksNext ? l1 : l2;
         Lutemon defender = l1AttacksNext ? l2 : l1;
+        BattleResult r = arena.fightOnce(attacker, defender);
+
         ImageView swordImg = l1AttacksNext ? fightImg1 : fightImg2;
         ImageView shieldImg = l1AttacksNext ? fightImg2 : fightImg1;
         TextView damageText = l1AttacksNext ? dmgIndicator1 : dmgIndicator2;
         TextView defenseText = l1AttacksNext ? dmgIndicator2 : dmgIndicator1;
-
-        int attackValue = attacker.getAttack();
-        int defenseValue = defender.getDefence();
-        int finalDmg = attackValue-defenseValue;
 
         swordImg.setScaleX(1f);
         swordImg.setScaleY(1f);
@@ -135,7 +129,7 @@ public class ArenaActivity extends AppCompatActivity {
                     .scaleX(1.5f).scaleY(1.5f)
                     .setDuration(300)
                     .withEndAction(() -> {
-                        damageText.setText("-" + attackValue);
+                        damageText.setText("-" + r.attackValue);
                         damageText.animate()
                                 .alpha(1f)
                                 .setDuration(200)
@@ -148,7 +142,7 @@ public class ArenaActivity extends AppCompatActivity {
                     .scaleX(1.5f).scaleY(1.5f)
                     .setDuration(300)
                     .withEndAction(() -> {
-                        defenseText.setText("+" + defenseValue);
+                        defenseText.setText("+" + r.defenseValue);
                         defenseText.animate()
                                 .alpha(1f)
                                 .setDuration(200)
@@ -157,18 +151,25 @@ public class ArenaActivity extends AppCompatActivity {
                     .start();
         }, 1000);
         handler.postDelayed(() -> {
-            finalDmgIndicator.setText("-" + finalDmg);
+            finalDmgIndicator.setText("-" + r.damageDealt);
             finalDmgIndicator.animate()
                     .alpha(1f)
                     .setDuration(300)
                     .start();
 
-            String fightStr = defender.defense(attacker);
-            battleInfoTxt.setText(fightStr);
+            battleInfoTxt.setText(r.fightStr);
             updateLutemons();
         }, 2000);
 
+        handler.postDelayed(() -> {
+            if (r.isFinished) {
+                continueBtn.setVisibility(View.GONE);
+                fleeBtn.setVisibility(View.GONE);
+                exitBtn.setVisibility(View.VISIBLE);
+                Toast.makeText(this, "Level up!", Toast.LENGTH_SHORT).show();
+            }
 
+        }, 2000);
 
 
         l1AttacksNext = !l1AttacksNext;
