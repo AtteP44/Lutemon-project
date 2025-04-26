@@ -100,6 +100,8 @@ public abstract class Lutemon implements Serializable {
     public void levelUp(){
         level ++;
         attack ++;
+        defence ++;
+        maxHealth ++;
         restoreHealth();
     }
 

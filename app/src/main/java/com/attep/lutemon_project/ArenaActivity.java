@@ -101,7 +101,10 @@ public class ArenaActivity extends AppCompatActivity {
     }
     public void continueFight(){
         if (l1.getHealth() <= 0 || l2.getHealth() <= 0) {
-            continueBtn.setEnabled(false);
+            continueBtn.setVisibility(View.GONE);
+            Toast.makeText(this, "The lutemons won't fight. Not like this", Toast.LENGTH_SHORT).show();
+            exitBtn.setVisibility(View.VISIBLE);
+            fleeBtn.setVisibility(View.GONE);
             return;
         }
         Lutemon attacker = l1AttacksNext ? l1 : l2;
@@ -184,6 +187,7 @@ public class ArenaActivity extends AppCompatActivity {
         if(random.nextBoolean()){
             finish();
         } else{
+            Toast.makeText(this, "The lutemons won't stop fighting!", Toast.LENGTH_SHORT).show();
             continueFight();
         }
     }
