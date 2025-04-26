@@ -78,9 +78,6 @@ public abstract class Lutemon implements Serializable {
         trainingSessions++;
     }
 
-    public String getInfoString(){
-        return "att: " + String.valueOf(this.getAttack()) + "; def: " + String.valueOf(this.getDefence()+ "; exp: "+ String.valueOf(this.getLevel()));
-    }
     public String getArenaString(){
         return name +" Lvl:" + level;
     }
