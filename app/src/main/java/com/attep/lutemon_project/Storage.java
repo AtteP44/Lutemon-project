@@ -1,5 +1,13 @@
 package com.attep.lutemon_project;
 
+import android.content.Context;
+import android.widget.Toast;
+
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -9,6 +17,7 @@ public class Storage {
     private HashMap<String, LutemonLocation> locations;
     private ArrayList<Lutemon> lutemonList = new ArrayList<>();
     private static Storage storage = null;
+    private  static String FILENAME = "lutemons.data";
     private Storage() {
         locations = new HashMap<>();
         locations.put("Home", new Home());
@@ -78,6 +87,41 @@ public class Storage {
             all.addAll(location.getLutemons().values());
         }
         return all;
+    }
+
+    public void saveLutemons(Context context){
+        try {
+            ObjectOutputStream lutemonWriter = new ObjectOutputStream(context.openFileOutput(FILENAME,Context.MODE_PRIVATE));
+            lutemonWriter.writeObject(getAll());
+            lutemonWriter.close();
+            Toast.makeText(context, "Game saved", Toast.LENGTH_SHORT).show();
+        } catch (IOException e) {
+            e.printStackTrace();
+            Toast.makeText(context, "Saving lutemos failed", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    public void loadLutemons(Context context){
+        try {
+            ObjectInputStream luetmonReader = new ObjectInputStream(context.openFileInput(FILENAME));
+            ArrayList <Lutemon> loadedOnes = (ArrayList<Lutemon>) luetmonReader.readObject();
+            for (Lutemon l : loadedOnes ) {
+                locations.get("Home").addLutemon(l);
+                createdLutemonsAmount++;
+
+            }
+            Toast.makeText(context, "Game loaded", Toast.LENGTH_SHORT).show();
+        } catch (FileNotFoundException e) {
+            Toast.makeText(context, "Loading lutemons failed", Toast.LENGTH_SHORT).show();
+            e.printStackTrace();
+        } catch (IOException e) {
+            Toast.makeText(context, "Loading lutemons failed", Toast.LENGTH_SHORT).show();
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            Toast.makeText(context, "Loading lutemons failed", Toast.LENGTH_SHORT).show();
+            e.printStackTrace();
+        }
+
     }
 
 }
