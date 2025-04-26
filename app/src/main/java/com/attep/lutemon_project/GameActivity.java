@@ -2,6 +2,7 @@ package com.attep.lutemon_project;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.Button;
 import android.widget.ImageView;
 
 import androidx.activity.EdgeToEdge;
@@ -14,6 +15,7 @@ import androidx.viewpager2.widget.ViewPager2;
 import com.google.android.material.tabs.TabLayout;
 
 public class GameActivity extends AppCompatActivity {
+    private Button moveBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +28,7 @@ public class GameActivity extends AppCompatActivity {
             return insets;
         });
         ImageView returnBtn = findViewById(R.id.ReturnBtn);
+        moveBtn = findViewById(R.id.MoveMonsterBtn);
 
         TabLayout tabLayout = findViewById(R.id.tabArea);
         ViewPager2 fragmentArea = findViewById(R.id.fragmentArea);
@@ -60,6 +63,11 @@ public class GameActivity extends AppCompatActivity {
 
         returnBtn.setOnClickListener(v -> {
             Intent intent = new Intent(this, MainActivity.class);
+            startActivity(intent);
+        });
+
+        moveBtn.setOnClickListener(v -> {
+            Intent intent = new Intent(this, MoveLutemonsActivity.class);
             startActivity(intent);
         });
     }

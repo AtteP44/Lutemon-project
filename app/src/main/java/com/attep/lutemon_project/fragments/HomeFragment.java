@@ -28,10 +28,6 @@ public class HomeFragment extends Fragment {
     private RecyclerView recyclerView;
     private Button createBtn;
 
-    private Button moveBtn;
-
-
-
     public HomeFragment() {
         // Required empty public constructor
     }
@@ -50,7 +46,7 @@ public class HomeFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
         createBtn = view.findViewById(R.id.AddLutemonButton);
-        moveBtn = view.findViewById(R.id.MoveMonsterBtn);
+
 
         recyclerView = view.findViewById(R.id.HomeRv);
 
@@ -65,10 +61,7 @@ public class HomeFragment extends Fragment {
             Intent intent = new Intent(getActivity(), CreateLutemonActivity.class);
             startActivity(intent);
         });
-        moveBtn.setOnClickListener(v -> {
-            Intent intent = new Intent(getActivity(), MoveLutemonsActivity.class);
-            startActivity(intent);
-        });
+
 
         return view;
     }
