@@ -54,12 +54,16 @@ public class TrainingFragment extends Fragment {
         statusText = view.findViewById(R.id.trainingFragmentTxt);
         makeRadiobuttons(view);
 
+
         startTrainingBtn.setOnClickListener(v ->{
             trainingRg = view.findViewById(R.id.TrainingLutemonRg);
 
-            Intent intent = new Intent(getActivity(), TrainingActivity.class);
-            intent.putExtra("chosenOne", trainingRg.getCheckedRadioButtonId());
-            startActivity(intent);
+
+
+                Intent intent = new Intent(getActivity(), TrainingActivity.class);
+                intent.putExtra("chosenOne", trainingRg.getCheckedRadioButtonId());
+                startActivity(intent);
+
         });
         return view;
     }
@@ -82,6 +86,7 @@ public class TrainingFragment extends Fragment {
             RadioButton rb = new RadioButton(getContext());
             rb.setText(l.getName() + " Lvl:" +l.getLevel()+" ("+l.getType()+")");
             rb.setId(i++);
+            rb.setChecked(true);
             trainingRg.addView(rb);
 
         }

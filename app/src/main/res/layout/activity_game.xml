@@ -12,6 +12,14 @@
         android:layout_width="61dp"
         android:layout_height="50dp"
         app:srcCompat="@android:drawable/ic_menu_revert" />
+    <Button
+        android:id="@+id/MoveMonsterBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="120dp"
+        android:backgroundTint="#4CAF50"
+        android:fontFamily="@font/geostar_fill"
+        android:text="Move Monsters" />
 
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/tabArea"
